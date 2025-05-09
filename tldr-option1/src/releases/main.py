@@ -57,7 +57,7 @@ def get_inputs():
     with open(os.path.join(knowledge_dir, "community_template.md"), "r") as f:
         community_template = f.read()  
 
-    with open(os.path.join(knowledge_dir, "tldr_template.md"), "r") as f:
+    with open(os.path.join(knowledge_dir, "tldr_template2.md"), "r") as f:
         tldr_template = f.read()  
 
     return {

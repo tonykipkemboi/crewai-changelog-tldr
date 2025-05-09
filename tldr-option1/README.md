@@ -76,6 +76,8 @@ By breaking down the tasks we reduce the chances of hallucinations; so in the au
 **Templates for reports:**
 The `knowledge` folder contains all the templates for the reports. These ensure that we have a consistant output 
 
+Swap the templates for `tldr_template2.md` or `tldr_template.md` to pick preferred format 
+
 **Reports:**
 The reports are created in the root directory
 
