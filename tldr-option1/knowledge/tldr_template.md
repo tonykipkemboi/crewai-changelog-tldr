@@ -1,42 +1,42 @@
 # CrewAI Release & Community Insights – TL;DR
 
-Information gather from [from_date] to [today]
+Information gathered from __from_date__ to __today__
 
 ## Changelog Timeline
-- **{{version_1}} ({{date_1}}):** {{summary_1}}
-- **{{version_2}} ({{date_2}}):** {{summary_2}}
-- **{{version_3}} ({{date_3}}):** {{summary_3}}
-- **{{version_4}} ({{date_4}}):** {{summary_4}}
-- **{{version_5}} ({{date_5}}):** {{summary_5}}
+- **__version_1__ (__date_1__):** [__summary_1__](__url_of_change_1__)
+- **__version_2__ (__date_2__):** [__summary_2__](__url_of_change_2__)
+- **__version_3__ (__date_3__):** [__summary_3__](__url_of_change_3__)
+- **__version_4__ (__date_4__):** [__summary_4__](__url_of_change_4__)
+- **__version_5__ (__date_5__):** [__summary_5__](__url_of_change_5__)
 <!-- Add or remove lines as needed for each release cycle -->
 
 ## Highlights & Changes
-- **Rapid feature delivery:** {{feature_highlights}}
-- **Frequent breaking changes:** {{breaking_changes_summary}}
-- **Community engagement up:** {{community_engagement_summary}}
-- **Persistent blockers:** {{persistent_blockers_summary}}
+- **Rapid feature delivery:** __feature_highlights__ [More Info](__feature_highlights_url__)
+- **Frequent breaking changes:** __breaking_changes_summary__ [More Info](__breaking_changes_url__)
+- **Community engagement up:** __community_engagement_summary__ [More Info](__community_engagement_url__)
+- **Persistent blockers:** __persistent_blockers_summary__ [More Info](__persistent_blockers_url__)
 
 ## Patterns & Relationships
-- {{pattern_1}}
-- {{pattern_2}}
-- {{pattern_3}}
-- **Migration pain:** {{migration_pain_summary}}
+- __pattern_1__
+- __pattern_2__
+- __pattern_3__
+- **Migration pain:** __migration_pain_summary__
 
 ## Actionable Recommendations
-- **Before upgrading:** {{upgrade_advice}}
-- **Test new features:** {{testing_advice}}
-- **Report issues:** {{issue_reporting_advice}}
-- **Tap into CopilotKit:** {{copilotkit_advice}}
-- **Share solutions:** {{community_solution_advice}}
-- **Check the FAQ before posting:** {{faq_advice}}
+- **Before upgrading:** __upgrade_advice__
+- **Test new features:** __testing_advice__
+- **Report issues:** __issue_reporting_advice__
+- **Tap into CopilotKit:** __copilotkit_advice__
+- **Share solutions:** __community_solution_advice__
+- **Check the FAQ before posting:** __faq_advice__
 
 ## References
-- [Release Notes]({{release_notes_url}})
-- [CrewAI Issues]({{crewai_issues_url}})
-- [CrewAI Tools Issues]({{crewai_tools_issues_url}})
-- [CopilotKit Blog]({{copilotkit_blog_url}})
-- [Community Forum]({{community_forum_url}})
+- [Release Notes](__release_notes_url__)
+- [CrewAI Issues](__crewai_issues_url__)
+- [CrewAI Tools Issues](__crewai_tools_issues_url__)
+- [CopilotKit Blog](__copilotkit_blog_url__)
+- [Community Forum](__community_forum_url__)
 
 ---
 
-❤️ Thank you for shaping CrewAI. For support or to contribute a solution, join [the community]({{community_forum_url}}) and keep building!
+❤️ Thank you for shaping CrewAI. For support or to contribute a solution, join [the community](__community_forum_url__) and keep building!
