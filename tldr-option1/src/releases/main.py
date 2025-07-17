@@ -42,6 +42,7 @@ def get_inputs():
     - Avoid filler words: just, really, very.
 """
     knowledge_dir = Path("knowledge")
+    release="0.148.0"
 
     # read the templates for the reports
 
@@ -70,7 +71,8 @@ def get_inputs():
         'insights_template': insights_template,
         'issue_template': issue_template,
         'community_template': community_template,
-        'tldr_template': tldr_template
+        'tldr_template': tldr_template,
+        'release': release
     }
 
 # Call get_inputs() ONCE here as this is used for the crew inputs

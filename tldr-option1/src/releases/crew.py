@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
@@ -6,6 +6,9 @@ from typing import List
 # include libraries for tools
 from crewai_tools import SerperDevTool
 from crewai_tools import ScrapeWebsiteTool
+
+
+llm_tasks = LLM(model="gpt-4.1")
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -28,48 +31,69 @@ class Releases():
     def read_releases(self) -> Agent:
         return Agent(
             config=self.agents_config['read_releases'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def release_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['release_insights'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def read_issues(self) -> Agent:
         return Agent(
             config=self.agents_config['read_issues'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def issue_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['issue_insights'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def read_community(self) -> Agent:
         return Agent(
             config=self.agents_config['read_community'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def community_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['community_insights'],
-            verbose=False
+            verbose=False,
+            reasoning=True,
+            markdown=True,
+            memory=True,
         )
 
     @agent
     def insights(self) -> Agent:
         return Agent(
             config=self.agents_config['insights'],
+            reasoning=True,
+            markdown=True,
+            memory=True,
             verbose=True
         )
     
@@ -77,6 +101,9 @@ class Releases():
     def tldr(self) -> Agent:
         return Agent(
             config=self.agents_config['tldr'],
+            reasoning=True,
+            markdown=True,
+            memory=True,
             verbose=True
         )
 
@@ -87,6 +114,7 @@ class Releases():
     def read_releases_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_releases_task'],
+            llm=llm_tasks,
             #output_file='releases.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -95,6 +123,7 @@ class Releases():
     def release_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['release_insights_task'],
+            llm=llm_tasks,
             #output_file='release_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -103,6 +132,7 @@ class Releases():
     def read_issues_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_issues_task'],
+            llm=llm_tasks,
             #output_file='issues.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -111,6 +141,7 @@ class Releases():
     def issue_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['issue_insights_task'],
+            llm=llm_tasks,
             #output_file='issue_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -119,6 +150,7 @@ class Releases():
     def read_community_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_community_task'],
+            llm=llm_tasks,
             #output_file='community.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -127,6 +159,7 @@ class Releases():
     def community_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['community_insights_task'],
+            llm=llm_tasks,
             #output_file='community_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -135,6 +168,7 @@ class Releases():
     def insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['insights_task'],
+            llm=llm_tasks,
             output_file='insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -143,6 +177,7 @@ class Releases():
     def tldr_task(self) -> Task:
         return Task(
             config=self.tasks_config['tldr_task'],
+            llm=llm_tasks,
             output_file='tldr.md',
         )
     @crew

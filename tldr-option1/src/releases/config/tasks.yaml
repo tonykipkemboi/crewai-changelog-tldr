@@ -1,6 +1,6 @@
 read_releases_task:
   description: >
-    Track and analyze major CrewAI releases, focusing on version changes from {two_months_ago} to {current_date}
+    Track and analyze major CrewAI releases, focusing on version changes from {two_months_ago} to {current_date} for the version {release}
     Extract and summarize important changes, features, and updates.
     Official release information can be found at https://docs.crewai.com/release-notes and https://github.com/crewAIInc/crewAI/releases/
     Always check the https://github.com/crewAIInc/crewAI/releases/ first as is often faster to update
@@ -10,7 +10,7 @@ read_releases_task:
 
 release_insights_task:
   description: >
-    Analyze the release information and provide context about why changes are important.
+    Analyze the release information for the version {release} and provide context about why changes are important.
     Format the release notes in a clear, easy-to-read manner.
   expected_output: >
     A well-formatted analysis of releases with context and importance highlighted.
@@ -23,7 +23,7 @@ release_insights_task:
 
 read_issues_task:
   description: >
-    Collect and track the latest issues from GitHub and other relevant sources from {two_months_ago} to {current_date}
+    Collect and track the latest issues from GitHub and other relevant sources from {two_months_ago} to {current_date} for the version {release}
     Categorize and organize issues by type and priority.
     Official issue information can be found at https://github.com/crewAIInc/crewAI-tools/issues/ https://github.com/crewAIInc/crewAI/issues/ 
   expected_output: >
@@ -32,7 +32,7 @@ read_issues_task:
 
 issue_insights_task:
   description: >
-    Analyze the collected issues to identify patterns, trends, and common problems.
+    Analyze the collected issues for the version {release} to identify patterns, trends, and common problems.
     Highlight areas that need immediate attention.
   expected_output: >
     An analysis of issue patterns and trends with recommendations for action.
@@ -45,7 +45,7 @@ issue_insights_task:
 
 read_community_task:
   description: >
-    Monitor and collect information from community discussions and CrewAI forums from {two_months_ago} to {current_date}
+    Monitor and collect information from community discussions and CrewAI forums from {two_months_ago} to {current_date} for the version {release}
     Track important conversations and feedback.
     Official community information can be found at https://community.crewai.com/
   expected_output: >
@@ -67,7 +67,7 @@ community_insights_task:
 
 insights_task:
   description: >
-    Analyze the connections between releases, issues, and community feedback from {two_months_ago} to {current_date}
+    Analyze the connections between releases, issues, and community feedback from {two_months_ago} to {current_date} for the version {release}
     Crerating an easy to read report so the community can quickly figure out what's new and what's changed.
     Blend in extra information from https://blog.crewai.com/ https://docs.crewai.com/ 
     Identify patterns and relationships across all sources of information.
@@ -84,10 +84,10 @@ insights_task:
 
 tldr_task:
   description: >
-    Create a concise summary of the latest CrewAI updates and community insights with the information the community needs to know today.
+    Create a concise summary of the latest CrewAI updates and community insights with the information the community needs to know today for the version {release}
 
   expected_output:
-    A concise summary of the latest CrewAI updates and community insights
+    A complete and concise summary of the latest CrewAI updates and community insights
     Use the report format from the {tldr_template}
     Always use markdown formatting.
     Use the language style from {language_style}
