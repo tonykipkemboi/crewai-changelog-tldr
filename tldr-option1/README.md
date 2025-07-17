@@ -88,6 +88,8 @@ You will need accounts and keys for the following in `.env`
 `OPENAI_API_KEY="..."`
 `SERPER_API_KEY="..."`
 
+**Key Inputs**
+Change `release="0.148.0"` in `main.py` before each run so it can point at the latest version. 
 
 ## Key Knowledge Sources
 
