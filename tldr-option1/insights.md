@@ -1,4 +1,3 @@
-```markdown
 # CrewAI Q2-Q3 2025: Cross-Analysis of Releases, Issues & Community Feedback  
 *Prepared for all CrewAI users, developers, and stakeholders. This report surfaces actionable patterns, direct linkages, and opportunities for improving both product and community experience, based on comprehensive release notes, GitHub issue tracking, the community forum, documentation, and blog highlights from 2025-05-17 to 2025-07-17.*
 
@@ -18,17 +17,20 @@ However, the update and its aftermath also surfaced critical and recurring issue
 ---
 
 ## Table of Contents
-- [1. What's New & Changed: Major Releases](#1-whats-new--changed-major-releases)
-- [2. Top Issues & Community Pain-Points](#2-top-issues--community-pain-points)
-- [3. Cross-System Patterns & Linking Table](#3-cross-system-patterns--linking-table)
-  - [Key Cross-References](#key-cross-references)
-- [4. Trends & Relationships](#4-trends--relationships)
-- [5. FAQs (Frequently Asked Questions)](#5-faqs-frequently-asked-questions)
-- [6. Data Matrices & References](#6-data-matrices--references)
-    - [GitHub Issues: Status Table](#github-issues-status-table)
-- [7. Recommendations & Next Steps](#7-recommendations--next-steps)
-  - [For the Team:](#for-the-team)
-  - [For Community Members:](#for-community-members)
+- [CrewAI Q2-Q3 2025: Cross-Analysis of Releases, Issues \& Community Feedback](#crewai-q2-q3-2025-cross-analysis-of-releases-issues--community-feedback)
+  - [Executive Summary](#executive-summary)
+  - [Table of Contents](#table-of-contents)
+  - [1. What's New \& Changed: Major Releases](#1-whats-new--changed-major-releases)
+  - [2. Top Issues \& Community Pain-Points](#2-top-issues--community-pain-points)
+  - [3. Cross-System Patterns \& Linking Table](#3-cross-system-patterns--linking-table)
+    - [Key Cross-References](#key-cross-references)
+  - [4. Trends \& Relationships](#4-trends--relationships)
+  - [5. FAQs (Frequently Asked Questions)](#5-faqs-frequently-asked-questions)
+  - [6. Data Matrices \& References](#6-data-matrices--references)
+      - [GitHub Issues: Status Table](#github-issues-status-table)
+  - [7. Recommendations \& Next Steps](#7-recommendations--next-steps)
+    - [For the Team:](#for-the-team)
+    - [For Community Members:](#for-community-members)
 
 ---
 
@@ -169,4 +171,3 @@ Release/data as of 2025-07-17. For feedback or clarification, reply in the next 
 ---
 
 *Prepared by Cross-Analysis Agent, based on releases, GitHub issues, docs, community threads, and official blog posts, 2025-05-17 to 2025-07-17.*
-```
