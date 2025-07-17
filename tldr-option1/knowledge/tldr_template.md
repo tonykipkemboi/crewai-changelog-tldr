@@ -26,7 +26,6 @@ Information gathered from __from_date__ to __today__
 - **Before upgrading:** __upgrade_advice__
 - **Test new features:** __testing_advice__
 - **Report issues:** __issue_reporting_advice__
-- **Tap into CopilotKit:** __copilotkit_advice__
 - **Share solutions:** __community_solution_advice__
 - **Check the FAQ before posting:** __faq_advice__
 
@@ -34,7 +33,6 @@ Information gathered from __from_date__ to __today__
 - [Release Notes](__release_notes_url__)
 - [CrewAI Issues](__crewai_issues_url__)
 - [CrewAI Tools Issues](__crewai_tools_issues_url__)
-- [CopilotKit Blog](__copilotkit_blog_url__)
 - [Community Forum](__community_forum_url__)
 
 ---

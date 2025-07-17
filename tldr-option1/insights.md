@@ -1,148 +1,172 @@
-# CrewAI Major Releases Analysis (May 17, 2025 - July 17, 2025)
-
-## 🚀 Major Release Overview
-
-1. **Version 0.148.0** (Released on July 16, 2025)
-   - **Core Improvements & Fixes:**
-     - Utilized production WorkOS environment ID for enhanced stability.
-     - Added SQLite FTS5 support for streamlined testing workflows.
-     - Resolved agent knowledge handling issues for improved reliability.
-     - Improved comparison mechanisms by transitioning to the BaseLLM class.
-     - Fixed the missing `create_directory` parameter in the Task class for better functionality.
-   - **New Features & Enhancements:**
-     - Introduced agent evaluation functionality, pivotal for performance assessments.
-     - Added evaluator experiment and regression testing methods.
-     - Implemented a thread-safe AgentEvaluator to ensure safe concurrent operations.
-     - Enabled event emissions for effective agent evaluation tracking.
-     - Supported evaluation of both single Agent and LiteAgent types.
-     - Integrated with neatlogs for enhanced logging capabilities.
-     - Introduced crew context tracking for LLM guardrail events, improving oversight.
-   - **Documentation & Guides:**
-     - Updated documentation for guardrail attributes and added usage examples.
-     - Provided a comprehensive integration guide for neatlogs.
-     - Updated documentation for the Agent repository and details for Agent.kickoff usage.
-
-2. **Version 0.141.0** (Released on July 9, 2025)
-   - **Core Improvements & Fixes:**
-     - Enhanced GitHub Actions tests through parallel execution, boosting efficiency.
-   - **New Features & Enhancements:**
-     - Added crew context tracking for LLM guardrail events to improve monitoring.
-   - **Documentation & Guides:**
-     - Added documentation specific to Agent repository usage and details on the Agent.kickoff method.
-
-3. **Version 0.140.0** (Released on July 2, 2025)
-   - **Core Improvements & Fixes:**
-     - Fixed typos in test prompts and ensured project normalization.
-     - Enforced uppercase formatting for environment variables.
-     - Updated LiteLLM dependency and refined collection handling in RAGStorage.
-     - Implemented PEP 621 dynamic versioning for better package management.
-   - **New Features & Enhancements:**
-     - Introduced capabilities for tracking LLM calls per task and agent.
-     - Added MemoryEvents for monitoring memory usage.
-     - Enhanced support for models up to 7B parameters and added analytics tracking tools.
-   - **Documentation & Guides:**
-     - Updated CLI LLM documentation and various integration details.
-
-4. **Version 0.134.0** (Released on June 25, 2025)
-   - **Core Improvements & Fixes:**
-     - Fixed parameter syntax issues and improved compatibility with Pydantic versions.
-     - Upgraded code examples for Langfuse to the latest Python SDK.
-   - **New Features & Enhancements:**
-     - Introduced initialization for tools from defined attributes and improved MCP tools support.
-   - **Documentation & Guides:**
-     - Created comprehensive docs for LLM guardrail events and improved service integration documentation.
-
-## ⚠️ Notable Changes and Considerations
-- The latest versions brought significant enhancements in performance and user experience, especially through the introduction of agent evaluation functionalities.
-- Users are encouraged to review documentation updates to adapt to changes in task management and agent handling, particularly with respect to the new evaluation features.
-
-## 🎉 Acknowledgments
-- Special thanks to the contributors whose continuous efforts have driven these software improvements forward, facilitating enhanced features and stability for users of CrewAI.
+```markdown
+# CrewAI Q2-Q3 2025: Cross-Analysis of Releases, Issues & Community Feedback  
+*Prepared for all CrewAI users, developers, and stakeholders. This report surfaces actionable patterns, direct linkages, and opportunities for improving both product and community experience, based on comprehensive release notes, GitHub issue tracking, the community forum, documentation, and blog highlights from 2025-05-17 to 2025-07-17.*
 
 ---
 
-*For more detailed information, please visit our [documentation](https://docs.crewai.com) or check the [GitHub repository](https://github.com/crewAIInc/crewAI).*
+## Executive Summary
 
-----------
+CrewAI version 0.148.0 (released July 16, 2025) delivered major advances in agent evaluation, logging, memory, and integration capabilities, pushing its flagship "crews, flows, and agentic workflows" vision.  
+However, the update and its aftermath also surfaced critical and recurring issues—especially in agent memory handling, tool invocation, and LLM integration—with many still unresolved as of July 17, 2025. Community feedback in GitHub and forums closely aligns with the technical trouble spots, reinforcing focus areas for CrewAI’s next iterative improvement cycle.
 
-### Categorized Issues for Version 0.148.0 (Date Range: 2025-05-17 to 2025-07-17)
+**Key insights:**
+- Memory retention bugs and agent tool use gaps are top sources of user friction (multiple open critical bugs, high forum activity).
+- Most new platform and evaluation features are well-documented, but advanced integration needs (custom LLM endpoints, memory backends) create confusion and repeated support inquiries.
+- Community conversations reveal a growing desire for bulletproof deployment (no interactive-prompt crashes!) and plug-and-play compatibility with various LLM providers.
+- Recent documentation and blog focus on composable, resilient, “system that doesn’t break” approaches—directly echoing pain points in bug/feature requests and user queries.
 
-#### From crewAI-tools Repository:
-1. **Open Issues**:
-   - **[BUG]** SeleniumScrapingTool only works the first time 
-     - Issue #379, opened on Jul 13, 2025
-     - *Priority: Medium*
-   - **[ENHANCEMENT]** DirectoryReadTool produces huge content because of os.walk 
-     - Issue #342, opened on Jun 24, 2025
-     - *Priority: Low*
-   - **[BUG]** Remote MCP auth issue? 
-     - Issue #318, opened on Jun 02, 2025
-     - *Priority: High*
-   - **[FEATURE REQUEST]** Add Tool Filtering to crewai-tools MCPServerAdapter 
-     - Issue #317, opened on May 30, 2025
-     - *Priority: Medium*
-   - **[ERROR]** SERPERDEV tool error 
-     - Issue #303, opened on May 12, 2025
-     - *Priority: Low*
+---
 
-#### From crewAI Repository:
-1. **Open Issues**:
-   - **[BUG]** crewAI not working with local ollama 
-     - Issue #3176, opened on Jul 17, 2025
-     - *Priority: High*
-   - **[FEATURE REQUEST]** Support extra_headers param in LLM object 
-     - Issue #3177, opened on Jul 17, 2025
-     - *Priority: Medium*
-   - **[FEATURE REQUEST]** We need structured output capabilities that can be compatible with more models. 
-     - Issue #3174, opened on Jul 17, 2025
-     - *Priority: Medium*
-   - **[BUG]** LLM Failed with Custom OpenAI-Compatible Endpoint 
-     - Issue #3165, opened on Jul 15, 2025
-     - *Priority: High*
-   - **[BUG]** MCPServerAdapter calls click.confirm() in __init__ 
-     - Issue #3163, opened on Jul 15, 2025
-     - *Priority: High*
-   - **[BUG]** 🐞Agent does not invoke tools correctly 
-     - Issue #3154, opened on Jul 14, 2025
-     - *Priority: High*
-   - **[FEATURE REQUEST]** Sequential chunk-based analysis, agent memory aggregation, and summarization for large files 
-     - Issue #3144, opened on Jul 13, 2025
-     - *Priority: Medium*
+## Table of Contents
+- [1. What's New & Changed: Major Releases](#1-whats-new--changed-major-releases)
+- [2. Top Issues & Community Pain-Points](#2-top-issues--community-pain-points)
+- [3. Cross-System Patterns & Linking Table](#3-cross-system-patterns--linking-table)
+  - [Key Cross-References](#key-cross-references)
+- [4. Trends & Relationships](#4-trends--relationships)
+- [5. FAQs (Frequently Asked Questions)](#5-faqs-frequently-asked-questions)
+- [6. Data Matrices & References](#6-data-matrices--references)
+    - [GitHub Issues: Status Table](#github-issues-status-table)
+- [7. Recommendations & Next Steps](#7-recommendations--next-steps)
+  - [For the Team:](#for-the-team)
+  - [For Community Members:](#for-community-members)
 
-----------
+---
 
-## CrewAI Community Discussions and Feedback (May 17, 2025 - July 17, 2025)
+## 1. What's New & Changed: Major Releases
 
-### Key Issues Identified: 
-1. **LLM Response Errors**: Community members reported problems such as "ValueError: Invalid response from LLM call," which has affected their workflow significantly.
-2. **Local Deployment Issues**: A common theme in discussions is the failure of CrewAI when trying to run it with local instances of models like llama.cpp, disrupting intended functionalities.
-3. **MCPTool Errors**: Users pointed out issues with the "Event loop is closed" error when calling MCP tools, which has created barriers in their automation tasks.
-4. **Configuration Challenges**: Members experienced difficulties setting up various agents and handling commands related to their MCP servers, leading to a proliferation of troubleshooting requests in the community.
-5. **Integration Problems**: There were repeated mentions of connectivity issues with external systems and other LLM services, indicating challenges in environment compatibility.
+| Version    | Release Date | Major Additions & Fixes                                               | Major Docs or Blog Highlights                                          |
+|------------|-------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
+| 0.148.0    | 2025-07-16  | - Agent evaluation tools: regression, thread-safety, events           | - Guides for Agent guardrail usage, neatlogs integration, repository  |
+|            |             | - AgentEvaluator (single/LiteAgent), neatlogs integration             | - Expanded Agent & kickoff docs                                       |
+|            |             | - Crew context tracking for LLM events                                | - Reinforced “systems don’t break” and composable agentic workflows   |
+|            |             | - BaseLLM refactor, SQLite FTS5 in tests, logging improvements        | - [Docs - Introduction, Agents, Flows, Memory, LLM Integration](https://docs.crewai.com/)      |
+|            |             | - Bugfixes: Task class, knowledge handling, directory parameter       | - [Blog - “Build Agents to be Dependable”, July 2025](https://blog.crewai.com/build-agents-to-be-dependable/)           |
 
-### Community Sentiment:
-- There was a notable frustration among users trying to integrate or use the new enhancements from version 0.148.0, especially concerning local and third-party LLM connections.
-- Users have been active in seeking help and sharing their troubleshooting experiences, reflecting a collaborative spirit despite the technical hurdles encountered. Many threads were initiated to discuss workaround strategies and best practices.
-- Overall, the sentiment was mixed; while some users appreciated the new features, the critical bugs have generated a sense of urgency for fixes and developments.
+*Full changelog: [CrewAI Releases](https://github.com/crewAIInc/crewAI/releases/tag/0.148.0)*
 
-### Recommendations for Improvement:
-- **Prioritize Bug Fixes**: High-priority bugs affecting local deployments and tool functionalities need to be addressed promptly.
-- **Enhanced Documentation**: Clearer integration guides and troubleshooting sections could lead to reduced confusion and improve user experience.
-- **Community Engagement**: Regular check-ins by developers in the community support threads could foster a better relationship and potentially quicken resolution times for reported issues.
+---
 
-These insights can help guide adjustments and developments in CrewAI, focusing on enhancing the user experience and addressing technical shortcomings as highlighted by active discussions from the community.
+## 2. Top Issues & Community Pain-Points
 
---- 
+**🟠 = Still open or recurring in support channels**
 
-❤️ Thank you for shaping CrewAI. For the latest support and to contribute a solution, join [community link] and keep building!
+| Theme / Blocker                                       | Raised In         | Major Linked Issues/Threads                                                    | Resolution/Status            |
+|-------------------------------------------------------|-------------------|-------------------------------------------------------------------------------|------------------------------|
+| Memory leaks, stale/undeletable agent knowledge        | GitHub, Forum     | [#3169](https://github.com/crewAIInc/crewAI/issues/3169), Forum "Persistence Knowledge" | 🟠 Critical, Unresolved      |
+| Agents do not call tools (“simulated” output)          | GitHub, Forum     | [#3154](https://github.com/crewAIInc/crewAI/issues/3154), Forum (tools tags)  | 🟠 High, Unresolved          |
+| LLM/endpoint integration issues (custom endpoints, OpenRouter, Ollama) | GitHub, Forum     | [#3165](https://github.com/crewAIInc/crewAI/issues/3165), "Unable to use HuggingFace, OpenRouter...", "CrewAI crashing with local llama.cpp", "Issues with Bedrock LLM..." | 🟠 High, Unresolved |
+| Interactive-prompt crash in CI/CD/Docker               | GitHub            | [#3163](https://github.com/crewAIInc/crewAI/issues/3163)                      | 🟠 High, Unresolved          |
+| Module/package errors on install/use (`ModuleNotFoundError`) | Forum           | ["ModuleNotFoundError: No module named 'project_name'"](https://community.crewai.com/c/community-support/7/l/top) | 🟠 Medium, Recurring         |
+| Task config/callback immutability issue                | GitHub            | [#3160](https://github.com/crewAIInc/crewAI/issues/3160)                      | 🟠 Medium, Unresolved        |
+| Large file/agent memory workflow                       | GitHub            | [#3144](https://github.com/crewAIInc/crewAI/issues/3144)                      | 🟠 Low, Open                 |
+| Resource/session issues in Tools repo                  | GitHub            | [#379](https://github.com/crewAIInc/crewAI-tools/issues/379)                  | 🟠 Medium, Open              |
+| Directory tool outputs too much data                   | GitHub            | [#342](https://github.com/crewAIInc/crewAI-tools/issues/342)                  | 🟠 Medium, Open              |
+| Auth issues with remote MCP                            | GitHub            | [#318](https://github.com/crewAIInc/crewAI-tools/issues/318)                  | 🟠 Medium, Open              |
+
+_Note: 🟠 = still a major irritant or unresolved for some user profiles. Most high-priority issues were **not** resolved with v0.148.0 and were reported after or during the release._
+
+---
+
+## 3. Cross-System Patterns & Linking Table
+
+### Key Cross-References
+
+| Product Change / Feature              | Issue(s) Closed / Improved           | Forum or Community Feedback                                            | Docs / Blog Updates                                  |
+|---------------------------------------|--------------------------------------|------------------------------------------------------------------------|-----------------------------------------------------|
+| Agent evaluation, regression, events  | (New): groundwork, but triggering memory/tool bugs                      | Many “tools_issues” topics, agent memory issues recur                  | Evaluation guides, agent usage expanded              |
+| Guardrail attributes & neatlogs integration | Some logging/telemetry pain reduced  | Users now ask about best practices for context/memory isolation         | [Docs: Guardrails, Logging, Memory guides]           |
+| LLM endpoint integration upgrades     | [#3165], [#3177], open requests      | Many threads on custom endpoint/third-party LLM integration challenge   | Quickstart LLM guide, [Blog: System resilience]      |
+| Persistent knowledge and memory APIs  | [#3169], [#3152]                     | Big forum volume: memory cannot be purged, "User isolation" threads     | Memory API and usage coverage, but not enough detail |
+| Agent tool invocation accuracy        | [#3154]                              | “Agent does not call tools”, multiple user reports                      | Tutorials updated, but code fixes pending            |
+| CI/CD, Docker, deployment reliability | [#3163]                              | “Event loop is closed” and deployment failure posts                     | [Docs: Deployment recommendations, FAQ]              |
+
+**Pattern:** User-reported pain-points and breakages rapidly reflect technical debt from each core release—even as documentation/guide coverage grows, implementation and migration gaps persist, leading to thematic GitHub and forum echo chambers around agent reliability, memory management, and LLM extensibility.
+
+---
+
+## 4. Trends & Relationships
+
+- **Memory, agent persistence, and isolation are top-priority pain-points:** User inability to reliably delete or scope agent knowledge (persistent data “sticking”) is both critical (potential for data leaks) and widespread in forum activity.
+- **Agent tool invocation and workflow correctness:** Growing complexity in agent logic led to a surge of “tool not actually called” and “simulated output not useful” complaints, hampering trust in automation.
+- **LLM endpoint diversity drives complexity and confusion:** As custom and local LLM setups proliferate (Ollama, HuggingFace, Azure, OpenRouter), integration bugs escalate, and support needs far outpace documentation fixes.
+- **Deployment experience breaks the “no-code” promise:** Interactive prompts that stall in automated or remote environments (CI/CD, Docker) run counter to CrewAI’s reliability vision; immediate friction for new and scaling users.
+- **Documentation improvements outpace code fixes:** Docs increasingly stress resilience and composability, but many “how-to” gaps for advanced deployment or debugging persist—mirrored by recurring forum FAQ/issue types.
+- **Community engagement is high, with constructive repeat questions:** The user base remains supportive and active; repeat questions signal both demand for CrewAI capabilities and urgency for better onboarding and migration support.
+
+---
+
+## 5. FAQs (Frequently Asked Questions)
+
+**Q1: Why does my CrewAI agent keep "remembering" deleted knowledge or data?**  
+*A current critical bug ([#3169](https://github.com/crewAIInc/crewAI/issues/3169)) means some deleted knowledge persists in memory.*  
+Find best-practice memory guides in [CrewAI Docs: Memory](https://docs.crewai.com/) and join community threads on isolation strategies.
+
+**Q2: Agents don’t seem to invoke tools—only “simulate” results. Why?**  
+*Unresolved bug ([#3154](https://github.com/crewAIInc/crewAI/issues/3154)). For now, double-check tool integration, use detailed logging (neatlogs/guardrails), and monitor the [official issues](https://github.com/crewAIInc/crewAI/issues).*
+
+**Q3: How do I set up a custom LLM endpoint (e.g., HuggingFace, Azure OpenAI, or Ollama)?**  
+*Follow the updated [LLM Integration Guide](https://docs.crewai.com/) and reference recurring help threads: ["Unable to use HuggingFace..."](https://community.crewai.com/c/community-support/7), ["Issues with Bedrock LLM Connectivity"]. If using non-OpenAI APIs, compatibility issues are tracked in [#3165](https://github.com/crewAIInc/crewAI/issues/3165).*
+
+**Q4: Why does my CI/CD (Docker, FastAPI) CrewAI deployment hang or crash asking for confirmation?**  
+*Interactive-prompt launch bug ([#3163](https://github.com/crewAIInc/crewAI/issues/3163)) impacts all non-interactive environments. Workarounds: avoid CI/CD for now or patch locally; watch issue ticket for updates.*
+
+**Q5: "ModuleNotFoundError: No module named 'project_name'" keeps happening! How do I fix this?**  
+*This error recurs for new users (July 2025): check [installation docs](https://docs.crewai.com/), confirm all dependencies, and consult the [hot forum thread](https://community.crewai.com/c/community-support/7/l/top) for community-led troubleshooting.*
+
+---
+
+## 6. Data Matrices & References
+
+#### GitHub Issues: Status Table
+
+| Type           | Total | Open | Closed | Blockers* |
+|----------------|-------|------|--------|-----------|
+| Bugs           | 10    | 10   | 0      | 4         |
+| Enhancements   | 4     | 4    | 0      | 0         |
+| Docs           | 0     | 0    | 0      | 0         |
+| Task/Other     | 3     | 3    | 0      | 0         |
+| **Total:**     | 17    | 17   | 0      | 4         |
+
+\*Blockers/high-priority:  
+- [#3169: Crew retains deleted knowledge](https://github.com/crewAIInc/crewAI/issues/3169)
+- [#3165: LLM fails with custom endpoint](https://github.com/crewAIInc/crewAI/issues/3165)
+- [#3163: MCPServerAdapter interactive crash](https://github.com/crewAIInc/crewAI/issues/3163)
+- [#3154: Agent simulates tool execution, does not actually run](https://github.com/crewAIInc/crewAI/issues/3154)
+
+**Full links:**  
+- [Project Issues (core)](https://github.com/crewAIInc/crewAI/issues?q=is%3Aissue+created%3A2025-05-17..2025-07-17+)
+- [Tools Issues](https://github.com/crewAIInc/crewAI-tools/issues)
+- [Community Forum](https://community.crewai.com/c/community-support/7/)
+- [Docs & Releases](https://docs.crewai.com/), [Release 0.148.0](https://github.com/crewAIInc/crewAI/releases/tag/0.148.0)
+
+---
+
+## 7. Recommendations & Next Steps
+
+### For the Team:
+- **Prioritise fixing memory persistence, deletion, and user isolation:** Address [#3169] as an urgent priority to mitigate risk of data leaks.
+- **Resolve agent tool invocation bugs fast:** The simulation/placeholder issue ([#3154]) risks trust in CrewAI’s automation promises.
+- **Accelerate robust support for diverse LLM endpoints:** Simplify onboarding for non-OpenAI providers, document pending caveats, and resolve [#3165].
+- **Target “no-interaction” deployment:** Make CI/CD and Docker execution fully non-interactive ([#3163]), matching the platform’s enterprise reliability messaging.
+- **Improve FAQ / onboarding visibility:** Move top recurring issues and their workarounds into a highlighted docs “Known Issues” or “Getting Unstuck” guide.
+
+### For Community Members:
+- **Stay engaged with both forum and GitHub:** Report issues with detailed logs and context. Star/vote priority tickets to elevate awareness.
+- **Apply best-practice workarounds/shared solutions from community threads while waiting for upstream fixes.**
+- **Refer to [updated documentation](https://docs.crewai.com/) and participate in webinars or office hours for hands-on troubleshooting.**
+
+---
+
+❤️ Thank you for shaping CrewAI! For the latest support and to contribute solutions, join the [CrewAI Community Forum](https://community.crewai.com/c/community-support/7/) and help empower the next wave of agentic AI workflows.
 
 ---
 
 **Legend**:  
 🟠 = Recurring or still open  
 ✅ = Closed/resolved  
-Release/data as of July 17, 2025. For feedback or clarification, reply in the next community sync or open a thread.
+Release/data as of 2025-07-17. For feedback or clarification, reply in the next community sync or open a thread.
 
 ---
 
-*Prepared by Cross-Analysis Agent based on releases, GitHub issues, docs, community threads, and official blog posts, May 17, 2025 - July 17, 2025.*
+*Prepared by Cross-Analysis Agent, based on releases, GitHub issues, docs, community threads, and official blog posts, 2025-05-17 to 2025-07-17.*
+```

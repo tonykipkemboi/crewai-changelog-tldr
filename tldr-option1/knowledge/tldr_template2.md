@@ -9,4 +9,4 @@
 ## Documentation & Guides
 [documentation guides list with links]
 
-Full release notes here - [{full_release_notes_text}]({full_release_notes_url})
+Full release notes here - [[https://github.com/crewAIInc/crewAI/releases]

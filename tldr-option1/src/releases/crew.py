@@ -35,6 +35,7 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
+            llm=llm_tasks,
         )
 
     @agent
@@ -45,7 +46,8 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
-        )
+            llm=llm_tasks,
+        )   
 
     @agent
     def read_issues(self) -> Agent:
@@ -55,6 +57,7 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
+            llm=llm_tasks,
         )
 
     @agent
@@ -65,6 +68,7 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
+            llm=llm_tasks,
         )
 
     @agent
@@ -75,6 +79,7 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
+            llm=llm_tasks,
         )
 
     @agent
@@ -85,6 +90,7 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
+            llm=llm_tasks,
         )
 
     @agent
@@ -94,7 +100,8 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
-            verbose=True
+            verbose=True,
+            llm=llm_tasks,
         )
     
     @agent
@@ -104,7 +111,8 @@ class Releases():
             reasoning=True,
             markdown=True,
             memory=True,
-            verbose=True
+            verbose=True,
+            llm=llm_tasks,
         )
 
     # To learn more about structured task outputs,
@@ -114,7 +122,6 @@ class Releases():
     def read_releases_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_releases_task'],
-            llm=llm_tasks,
             #output_file='releases.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -123,7 +130,6 @@ class Releases():
     def release_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['release_insights_task'],
-            llm=llm_tasks,
             #output_file='release_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -132,7 +138,6 @@ class Releases():
     def read_issues_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_issues_task'],
-            llm=llm_tasks,
             #output_file='issues.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -141,7 +146,6 @@ class Releases():
     def issue_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['issue_insights_task'],
-            llm=llm_tasks,
             #output_file='issue_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -150,7 +154,6 @@ class Releases():
     def read_community_task(self) -> Task:
         return Task(
             config=self.tasks_config['read_community_task'],
-            llm=llm_tasks,
             #output_file='community.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -159,7 +162,6 @@ class Releases():
     def community_insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['community_insights_task'],
-            llm=llm_tasks,
             #output_file='community_insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -168,7 +170,6 @@ class Releases():
     def insights_task(self) -> Task:
         return Task(
             config=self.tasks_config['insights_task'],
-            llm=llm_tasks,
             output_file='insights.md',
             tools=[SerperDevTool(), ScrapeWebsiteTool()]
         )
@@ -177,7 +178,6 @@ class Releases():
     def tldr_task(self) -> Task:
         return Task(
             config=self.tasks_config['tldr_task'],
-            llm=llm_tasks,
             output_file='tldr.md',
         )
     @crew
