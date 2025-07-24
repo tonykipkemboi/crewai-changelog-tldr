@@ -1,97 +1,61 @@
-:police_car_light:CrewAI 0.148.0 is out! :police_car_light:
+:police_car_light: CrewAI v0.150.0 is out! :police_car_light:
 
-Here’s what you need to know about this release, with direct links and actionable recommendations for the community.
+Here’s what you need to know about this release. These highlights focus on actionable improvements, open issues, and recommended next steps for everyone in the CrewAI community.
 
 ---
 
 ## Core Improvements & Fixes
-
-- **Agent Knowledge Handling Improvements:**  
-  Addresses persistent bugs where agents “forget” or mishandle stored knowledge. Targeted fixes were shipped ([#3169](https://github.com/crewAIInc/crewAI/issues/3169)), but not all causes are yet resolved—watch for updates.
-
-- **Thread-Safe Agent Evaluation:**  
-  The new `AgentEvaluator` is now thread-safe, supporting more robust concurrent or multi-agent scenarios.
-
-- **Bug Fixes for LLM and Task Parameters:**  
-  Core bug around LLM–agent integration fixed; issues with Task parameters and agent base classes received attention.
-
-- **neatlogs Integration:**  
-  Core logging is now compatible with `neatlogs`, improving traceability and observability in your CrewAI projects.
-
-- **Ongoing Security Review:**  
-  While 0.148.0 advances stability, security blockers like the `embedchain` dependency are still open ([#334](https://github.com/crewAIInc/crewAI-tools/issues/334)). This remains an enterprise barrier.
-
-See changelog: [CrewAI 0.148.0 Release](https://github.com/joaomdmoura/crewAI/releases/tag/0.148.0)
-
----
+- **Chroma Storage Safety:** Introduced file locking for the Chroma client, improving data reliability in concurrent and multi-process use.  
+  [Chroma file lock details](https://github.com/crewAIInc/crewAI/releases/tag/v0.150.0)
+- **LLM Stability Improvements:** Dropped outdated LLM stop parameters; upgraded to LiteLLM 1.74.3 for better large language model compatibility.  
+  [LiteLLM upgrade notes](https://github.com/crewAIInc/crewAI/issues/3207)
+- **Save Method & Messaging Fixes:** Addressed save method errors and messaging bugs, especially affecting Ollama local integration.
+- **Deprecation of UserMemory:** Major step towards more robust agent storage and knowledge management.  
+  [UserMemory deprecation guide](https://docs.crewai.com/user-memory-migration)
+- **Mac OS Installation Fixes (in progress):** Actively investigating Mac dependency issues with ChromaDB/DB drivers.  
+  [See open issue](https://github.com/crewAIInc/crewAI/issues/3202)
 
 ## New Features & Enhancements
+- **Ad-hoc Tool Calling:** Agents can now flexibly call new tools at runtime, boosting extensibility without code changes.
+- **Mem0 Storage v2:** Major backend update for faster, more consistent knowledge storage and retrieval for agents.  
+  [Mem0 v2 docs](https://docs.crewai.com/mem0-v2)
+- **SerperScrapeWebsiteTool Added:** Part of the research suite; supports powerful website scraping and content extraction.  
+  [Tool documentation](https://github.com/crewAIInc/crewAI-tools/releases)
+- **SQLite FTS5 Integration:** Native support brings stronger, faster in-memory and persistent search for RAG (retrieval-augmented generation) workflows.  
+  [FTS5 notes](https://github.com/crewAIInc/crewAI-tools/issues/342)
+- **Bedrock AgentCore Browser/Code Toolkit:** Stagehand and core browser/code tools refactored for reliability and automation.  
+- **Tool Refactoring & Bugfixes:** Weave kickoff and MongoDBVectorSearchTool improvements increase stability for multi-agent research and database operations.
 
-- **Agent Evaluation Functions:**  
-  Official evaluation tools introduced to measure agent performance and outputs. Responds to growing demand for better benchmarking.
-
-- **Workflow Guardrail Events:**  
-  Expanded guardrail attributes and event types support more nuanced control and oversight of agent actions—aligning with both developer and compliance needs.
-
-- **Enhanced Context Tracking:**  
-  Agent and LLM context flows now better captured, boosting transparency and reliability in complex, multi-step tasks.
-
-- **Structured Output Progress:**  
-  While structured agent response support for all LLMs is not fully cross-compatible, groundwork enhancements lay a path for upcoming releases ([#3174](https://github.com/crewAIInc/crewAI/issues/3174)).
-
-- **Improved Session Management:**  
-  Reliability added for concurrent use cases, particularly where agent tasks and tools execute in overlapping environments.
+## Documentation & Guides
+- **Tavily Search & Extractor:** Comprehensive new guides on integrating search and web extraction tools.  
+  [Tavily docs](https://docs.crewai.com/tools/tavily)
+- **SerperScrapeWebsite Tool:** Added usage and troubleshooting documentation for advanced scraping use cases.
+- **Migration Guides:** Step-by-step docs for deprecations—especially UserMemory → Mem0 v2—now highlighted.
+- **Tool Installation and Upgrade Notes:** Clearer requirements, especially around SQLite FTS5 and external dependencies.
+- **Community FAQs:** Outlined solutions for top blockers, including import errors, DB support requests, and breaking API changes.  
+  [FAQ section in docs](https://docs.crewai.com/faq)
 
 ---
 
-## Documentation & Guides
+**Action Points:**
+- If you use UserMemory, you must follow the [migration guide](https://docs.crewai.com/user-memory-migration).
+- Test workflows that rely on tool imports or custom LLM endpoints—several [import bugs](https://github.com/crewAIInc/crewAI/issues/3210) remain open.
+- Share and upvote bugs or reproducible cases in [GitHub issues](https://github.com/crewAIInc/crewAI/issues) to help prioritise fixes.
+- Review new guides and consider contributing your own migration steps, especially if you hit issues.
 
-- **New Guides on Guardrail Attributes & Events:**  
-  Detailed docs with practical code samples—start using the new workflow controls right away:  
-  [Guardrail Attributes Doc](https://docs.crewai.com/guardrails/)
+**Current high-priority open issues:**  
+- TavilySearchTool import failures  
+- Custom LLM endpoint failures  
+- Ollama local integration bugs  
+- Logging and output conflicts  
+- ChromaDB Mac compatibility  
+- Weave and DirectoryReadTool hangs
 
-- **neatlogs Integration Walkthrough:**  
-  Step-by-step integration notes show how to plug CrewAI output into neatlogs for enhanced auditability:  
-  [neatlogs in CrewAI](https://docs.crewai.com/logging/neatlogs/)
-
-- **Agent Repository & Kickoff Methods:**  
-  Updated pages clarify new agent repo logic and invocation methods, aiming to unblock onboarding for large teams:  
-  [Agent Repository Doc](https://docs.crewai.com/agents/repo/)
-
-- **Expanded Usage Examples:**  
-  Community-requested code snippets for guardrail configuration and monitoring; easier for newcomers and scaling teams.
+See details or join the discussion:  
+[Open CrewAI Issues](https://github.com/crewAIInc/crewAI/issues) | [crewai-tools Issues](https://github.com/crewAIInc/crewAI-tools/issues)
 
 ---
 
 Full release notes here – [https://github.com/crewAIInc/crewAI/releases](https://github.com/crewAIInc/crewAI/releases)
 
----
-
-## Community Insights
-
-- **Ongoing High-Priority Issues:**  
-  - LLM integration (especially local Ollama support on Windows) is still problematic ([#3176](https://github.com/crewAIInc/crewAI/issues/3176)).
-  - Security/compliance blockers (such as unresolved embedchain vulnerabilities) prevent some enterprise deployments.
-  - Tool usability (e.g., DirectoryReadTool over-listing; SeleniumScrapingTool sessions) is a recurring pain.
-  - Structured output and advanced param support (like “extra_headers”) are widely requested; implementation is ongoing.
-
-- **Positive Trends:**  
-  - Documentation now closely follows feature updates; “docs-first” approach is winning praise.
-  - Introduction of agent evaluation is highly anticipated—encouraging project-level quality management.
-  - Community workaround sharing is active; suggestions to formalise these into the codebase are recommended.
-
-## Calls to Action
-
-- If you hit open bugs (memory, integrations, security), please file reproducible reports with your system info.
-- Share detailed feedback and use case examples on the most-wanted enhancements (e.g., output formatting, LLM compatibility).
-- Contribute docs or suggest PRs for common workarounds—check the “help wanted” GitHub tags.
-- For enterprise or regulated use, verify impact of unresolved security advisories before upgrading.
-- Stay involved via [forum](https://github.com/crewAIInc/crewAI/discussions) and [GitHub Issues](https://github.com/crewAIInc/crewAI/issues).
-
----
-
-Thank you for driving CrewAI’s progress—your feedback and community collaboration power each release. Let’s keep building together!
-
----
-
-*Release data as of 2025-07-17. Reach out on the forum or next community call for deeper questions or to help shape the roadmap.*
+❤️ Thank you for shaping CrewAI—your feedback and collaboration drive each release. Join us on GitHub or in the community threads, and let’s keep building!
