@@ -1,4 +1,4 @@
-:police_car_light:CrewAI {version} is out! :police_car_light:
+New Release:CrewAI {version} is out! :police_car_light:
 
 ## Core Improvements & Fixes
 [core improvements fixes list with links]
