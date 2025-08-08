@@ -1,45 +1,69 @@
-:police_car_light: CrewAI v0.152.0 is out! :police_car_light:
-
-CrewAI v0.152.0 delivers targeted improvements to usability and stability, focusing on login simplicity, agent memory upgrades, and better support for distributed and developer workflows. This release directly addresses top community requests, but several integration and environment issues remain open and require your attention. Below you’ll find key highlights, actionable changes, and opportunities to engage or help improve the platform. 
+New Release: CrewAI v0.157.0 is out! 🚨
 
 ## Core Improvements & Fixes
-- Login-only flows: “Signup” is now fully replaced by “login” across the platform. This unifies the experience for all users—update your authentication scripts and bookmarks. ([Release notes](https://github.com/joaomdmoura/crewAI/releases/tag/v0.152.0))
-- Agent memory (Mem0) improvements: Enhanced memory save and search logic aims to reduce workflow interruptions. Note: Some edge-case failures persist—see known issues below. ([Issue #3220](https://github.com/crewAIInc/crewAI/issues/3220))
-- Timezone-aware events: System now logs actions and schedules events with explicit timezone context. Especially helpful for distributed teams and workflow audits.
-- Import error clarity: Error messaging for failed imports is improved, helping you debug migration and dependency problems faster.
-- Memory configuration: “Mem0” receives a more robust default config to support out-of-the-box workflows, especially on new installs.
-- Vertex AI documentation fix: Addressed naming error and code example confusion in the Google Vertex AI integration documentation. ([Related doc issue](https://github.com/crewAIInc/crewAI-tools/issues/396))
+
+- New `crewai config` CLI command group for centralised, structured configuration management. See [CLI config docs](https://docs.crewai.com/cli/config).
+- Initial tracing support added, enabling early agent activity monitoring and groundwork for future step-tracking (see [crewAI#3268](https://github.com/crewAIInc/crewAI/issues/3268) and [tracing docs](https://docs.crewai.com/cli/tracing)).
+- Okta device-based authorisation for improved enterprise security ([enterprise auth docs update](https://docs.crewai.com/auth/okta)).
+- Improved CLI error reporting for clearer debugging and faster troubleshooting.
+- String operations optimised for performance.
+- Upgraded LiteLLM dependency for better LLM (large language model) integration.
+- [User Memory](https://docs.crewai.com/migration/user-memory) system deprecated (now removed) – you must migrate existing workflows.
+
+Unresolved and high-priority issues (as of 2025-08-08):
+- Windows platform support: CrewAI still does not run natively on Windows. See [issue #3253](https://github.com/crewAIInc/crewAI/issues/3253).
+- Agent kickoff failures with custom prompts and Weave integration ([#3261](https://github.com/crewAIInc/crewAI/issues/3261), [tools#394](https://github.com/crewAIInc/crewAI-tools/issues/394)).
+- Tool integration bugs persist (notably with embedchain, Weave, and Selenium).
+- Ongoing VertexAI BadRequestErrors ([#3277](https://github.com/crewAIInc/crewAI/issues/3277)).
+- Issues disabling reasoning mode ([#3242](https://github.com/crewAIInc/crewAI/issues/3242)).
+- Documentation clarity: Outdated/broken links and missing guides remain a pain-point ([#3240](https://github.com/crewAIInc/crewAI/issues/3240)).
 
 ## New Features & Enhancements
-- Custom Flow naming: You can now assign readable, custom names to Flows, improving workflow organisation and team collaboration. Highly requested by power users—try this in your next project!
-- RAG modules refactored: Retrieval-Augmented Generation (RAG) is now available as a top-level module. This change supports greater extensibility and modular design, but requires import path updates in your projects.
-- Startup stability tweaks: Refinements to core process startup routines, targeting reliability when bootstrapping new servers or environments. ([Startup issue](https://github.com/crewAIInc/crewAI-tools/issues/394))
+
+- Support for LangDB, opening new data workflow integrations ([LangDB docs](https://docs.crewai.com/integrations/langdb)).
+- CLI: Tracing (initial, alpha-stage), laying the foundation for live agent step transparency and audit trails.
+- Okta device authorisation option for enterprise users to streamline and secure authentication.
+- CLI enhancements: More user feedback, structured error output for easier troubleshooting.
+
+Community feedback on new features is positive—especially on configuration, tracing, and LangDB. However, reliability (especially platform support and error resilience) and observability (live, explainable agent actions) are top asks for the next cycle.
 
 ## Documentation & Guides
-- RAG migration guide: Step-by-step help for updating import paths and integrating with the new RAG top-level module. ([RAG migration guide](https://docs.crewai.com/migrations/rag-0.152.0))
-- Documentation hub: Live updates now closely follow bug reports—check [https://docs.crewai.com](https://docs.crewai.com) for the latest integration fixes and onboarding guidance.
-- Community-driven edits: Several fixes merged from active contributors, reflecting ongoing collaboration and rapid doc updates post-release.
 
-Full release notes here – [https://github.com/joaomdmoura/crewAI/releases/tag/v0.152.0](https://github.com/joaomdmoura/crewAI/releases/tag/v0.152.0)
+- CLI config, tracing, and LangDB guides published and being expanded. [Start here](https://docs.crewai.com/cli/config)
+- Okta/enterprise authentication expanded ([auth docs](https://docs.crewai.com/auth/okta)).
+- User Memory migration guide now available—essential if you relied on the previous memory feature ([migration guide](https://docs.crewai.com/migration/user-memory)).
+- Documentation on agent transparency, troubleshooting, and stepwise execution in progress.
+- Known issues: Documentation lags new features, sample code/tests and plugin integration examples need improvement. See and help with the latest at [crewAI#3240](https://github.com/crewAIInc/crewAI/issues/3240).
 
----
-
-**Community Insights & Actionable Guidance**
-
-- Memory, plugin, and environment compatibility remain leading pain-points. There are ongoing issues with memory reliability on some workflows ([#3220](https://github.com/crewAIInc/crewAI/issues/3220)), ChromaDB install errors on Mac ([#3202](https://github.com/crewAIInc/crewAI/issues/3202)), and plugin stability/tooling across platforms.
-- Most enhancements follow direct user feedback—strong engagement is shaping each release. However, several blockers are still open: startup failures, Windows/Mac dependency mismatches, and tool-specific errors. Watch for hotfixes and contribute regression results where you can.
-- Migration to new RAG structure is mandatory for all projects using advanced retrieval—review the [RAG migration guide](https://docs.crewai.com/migrations/rag-0.152.0) before deploying on v0.152.0.
-- Distributed teams should review all logging and event scheduling—timezone handling now matches global best practice but may require script tweaks.
-- If you hit any documentation or onboarding friction, raise an issue or jump into discussions. The team is prioritising public Q&A and rapid documentation responses.
-
-**How you can help or stay productive:**
-- Log persistent bugs early—include system, full traceback, and impact details.
-- Try the new Flow naming for project clarity.
-- For Mac/Windows issues, check pinned GitHub issues for interim workarounds.
-- Keep an eye on the [community forum](https://github.com/crewAIInc/crewAI/discussions) for migration threads and peer solutions.
+Full release notes here – [CrewAI v0.157.0 on GitHub](https://github.com/crewAIInc/crewAI/releases/tag/v0.157.0)
 
 ---
 
-❤️ Thanks for actively shaping CrewAI with your feedback and contributions. For help, ideas, or to resolve blockers together, join the [CrewAI GitHub Discussions](https://github.com/crewAIInc/crewAI/discussions).
+**Community Priorities & Insights**
 
-Release as of 2025-07-31. For questions or clarifications, reply in the next community sync or open a GitHub thread. Happy building!
+- High demand for explainability and agent action transparency (step-by-step tracing, live HITL—human-in-the-loop—streaming).
+- Users and teams are eager for improved Windows support and smoother agent startup (kickoff).
+- Positive engagement: More contributors are raising issues and PRs, especially focused on documentation and usability.
+- Docs, clarity, and working examples remain the most frequent requests after every feature release.
+- To influence priority, upvote or comment on the [high-impact issues](https://github.com/crewAIInc/crewAI/issues).
+
+---
+
+**Action points:**
+- If you relied on User Memory, migrate immediately to stay compatible.
+- Test and comment on new CLI config and tracing features—your feedback shapes the next release.
+- Report platform/agent-launch issues with full logs for triage.
+- Help improve docs by submitting corrections or reporting missing/broken links.
+
+Thank you for building and shaping CrewAI with us. For support, join [the forum](https://community.crewai.com/), and for detailed guidance, see [docs.crewai.com](https://docs.crewai.com).
+
+❤️ The CrewAI team appreciates your feedback—let's keep improving for everyone!
+
+---
+
+Legend:  
+🟠 = Still open or recurring  
+✅ = Resolved  
+Release as of 2025-08-08. Feedback or clarification? Raise it in the next sync or open an issue.
+
+---

@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.10, <3.13"
 resolution-markers = [
     "python_full_version >= '3.12.4'",
@@ -545,7 +545,7 @@ wheels = [
 
 [[package]]
 name = "crewai"
-version = "0.150.0"
+version = "0.157.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "appdirs" },
@@ -575,9 +575,9 @@ dependencies = [
     { name = "tomli-w" },
     { name = "uv" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/77/45/354255f6d85285603c068414465e9f85d04298e6ca8a2b2c9df2e6be1bfe/crewai-0.150.0.tar.gz", hash = "sha256:1cc63e1d8956989f681207189a257259aee3a6400e7bb0a0c7d6d5ccc4936581", size = 6321063, upload-time = "2025-07-23T18:03:36.1Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/fe/a469d356ddaa3adea1cfffeac965412dc3a53ebcf991641cf4776030cede/crewai-0.157.0.tar.gz", hash = "sha256:947c819fa7bf155ae065bfaae600216e43b260b9b34a07b2098d7d221236fa26", size = 6341895, upload-time = "2025-08-06T21:48:16.461Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/86/c0/219e3922e5a9809a4ff4480c13fdbd3d852260a275c72c29da2728d3380c/crewai-0.150.0-py3-none-any.whl", hash = "sha256:ab3a3dbf1bbe3ac7a1494e4ba6112e78feeb73f1785651c59947493eb8026f4c", size = 366345, upload-time = "2025-07-23T18:03:33.956Z" },
+    { url = "https://files.pythonhosted.org/packages/20/97/bdc70fb7f27d44b98b97475e59fa75c155e0753ef4fd9848e1d0dc90e5a2/crewai-0.157.0-py3-none-any.whl", hash = "sha256:c34e844c8c92b78219cb23e96ff10561d7d5bfa068d44f08424c8dc6f36fc456", size = 375821, upload-time = "2025-08-06T21:48:14.354Z" },
 ]
 
 [package.optional-dependencies]
@@ -587,7 +587,7 @@ tools = [
 
 [[package]]
 name = "crewai-tools"
-version = "0.58.0"
+version = "0.60.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "chromadb" },
@@ -597,6 +597,7 @@ dependencies = [
     { name = "embedchain" },
     { name = "lancedb" },
     { name = "openai" },
+    { name = "portalocker" },
     { name = "pydantic" },
     { name = "pyright" },
     { name = "pytube" },
@@ -604,9 +605,9 @@ dependencies = [
     { name = "stagehand" },
     { name = "tiktoken" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/1f/bf/72c3a0cb5a8be1f635a4e3b07ee2ad81a6d427e63b7748c2727a33ade0d4/crewai_tools-0.58.0.tar.gz", hash = "sha256:ea82d5df8611ae22a8291934c4cd0b7ed5b77eca475f81014f018b7eca4d3350", size = 1026853, upload-time = "2025-07-23T17:45:53.228Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bb/60/04fd70a8a15eaf4147ff648ada44f1d4afd453a528cf8facd618ef32e576/crewai_tools-0.60.0.tar.gz", hash = "sha256:9234f6912b65495afe5e1bfa330abca09a40725d47fe2c71a22387bf6eeb8e72", size = 1032373, upload-time = "2025-08-06T20:27:16.003Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/34/bd/1de36fbf8fb717817d3bf72a94da38e27af6cc5b888d7c1203a3f0b0cc2f/crewai_tools-0.58.0-py3-none-any.whl", hash = "sha256:151688bf0fa8c90e27dcdbaa8619f3dee2a14e97f1b420a38187b12d88305175", size = 650113, upload-time = "2025-07-23T17:45:51.056Z" },
+    { url = "https://files.pythonhosted.org/packages/6d/55/984f3d2d5afbcfa87c380c7c17b728804e80617b768b3748f25220b2b32c/crewai_tools-0.60.0-py3-none-any.whl", hash = "sha256:a54277c973753de4a3269da17e5a7e4995d4c70fc331eb2872189b5f92cfdaaf", size = 657128, upload-time = "2025-08-06T20:27:14.295Z" },
 ]
 
 [[package]]
@@ -1649,7 +1650,7 @@ wheels = [
 
 [[package]]
 name = "litellm"
-version = "1.74.3"
+version = "1.74.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
@@ -1664,9 +1665,9 @@ dependencies = [
     { name = "tiktoken" },
     { name = "tokenizers" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cd/e3/3091066f6682016840e9a36111560656b609b95de04b2ec7b19ad2580eaa/litellm-1.74.3.tar.gz", hash = "sha256:a9e87ebe78947ceec67e75f830f1c956cc653b84563574241acea9c84e7e3ca1", size = 9256457, upload-time = "2025-07-12T20:06:06.128Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6d/5d/646bebdb4769d77e6a018b9152c9ccf17afe15d0f88974f338d3f2ee7c15/litellm-1.74.9.tar.gz", hash = "sha256:4a32eff70342e1aee4d1cbf2de2a6ed64a7c39d86345c58d4401036af018b7de", size = 9660510, upload-time = "2025-07-28T16:42:39.297Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/14/6f/07735b5178f32e28daf8a30ed6ad3e2c8c06ac374dc06aecde007110470f/litellm-1.74.3-py3-none-any.whl", hash = "sha256:638ec73633c6f2cf78a7343723d8f3bc13c192558fcbaa29f3ba6bc7802e8663", size = 8618899, upload-time = "2025-07-12T20:06:03.609Z" },
+    { url = "https://files.pythonhosted.org/packages/5f/e4/f1546746049c99c6b8b247e2f34485b9eae36faa9322b84e2a17262e6712/litellm-1.74.9-py3-none-any.whl", hash = "sha256:ab8f8a6e4d8689d3c7c4f9c3bbc7e46212cc3ebc74ddd0f3c0c921bb459c9874", size = 8740449, upload-time = "2025-07-28T16:42:36.8Z" },
 ]
 
 [[package]]
@@ -3099,7 +3100,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "crewai", extras = ["tools"], specifier = ">=0.148.0" }]
+requires-dist = [{ name = "crewai", extras = ["tools"], specifier = ">=0.152.0" }]
 
 [[package]]
 name = "requests"
