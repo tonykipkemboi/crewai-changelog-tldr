@@ -8,7 +8,13 @@ from crewai_tools import SerperDevTool
 from crewai_tools import ScrapeWebsiteTool
 
 
-llm_tasks = LLM(model="gpt-4.1")
+#llm_tasks = LLM(model="o4-mini", drop_params=True, additional_drop_params=["stop"])
+
+llm_tasks = gpt_5_llm = LLM(
+    model="openai/gpt-5",
+    drop_params=True,
+    additional_drop_params=["stop", "temperature"]
+)
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -31,66 +37,72 @@ class Releases():
     def read_releases(self) -> Agent:
         return Agent(
             config=self.agents_config['read_releases'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     @agent
     def release_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['release_insights'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )   
 
     @agent
     def read_issues(self) -> Agent:
         return Agent(
             config=self.agents_config['read_issues'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     @agent
     def issue_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['issue_insights'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     @agent
     def read_community(self) -> Agent:
         return Agent(
             config=self.agents_config['read_community'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     @agent
     def community_insights(self) -> Agent:
         return Agent(
             config=self.agents_config['community_insights'],
-            verbose=False,
+            verbose=True,
             reasoning=True,
             markdown=True,
             memory=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     @agent
@@ -102,6 +114,7 @@ class Releases():
             memory=True,
             verbose=True,
             llm=llm_tasks,
+            inject_data=True,
         )
     
     @agent
@@ -113,6 +126,7 @@ class Releases():
             memory=True,
             verbose=True,
             llm=llm_tasks,
+            inject_data=True,
         )
 
     # To learn more about structured task outputs,
