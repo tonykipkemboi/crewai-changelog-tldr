@@ -42,7 +42,7 @@ def get_inputs():
     - Avoid filler words: just, really, very.
 """
     knowledge_dir = Path("knowledge")
-    release="0.159.0"
+    release="0.165.1"
 
     # read the templates for the reports
 

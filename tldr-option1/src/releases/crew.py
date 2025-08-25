@@ -8,13 +8,22 @@ from crewai_tools import SerperDevTool
 from crewai_tools import ScrapeWebsiteTool
 
 
-#llm_tasks = LLM(model="o4-mini", drop_params=True, additional_drop_params=["stop"])
+grok_4_llm = LLM(
+    model="xai/grok-4-latest",
+    stream=False,
+    temperature=0.7,
+    drop_params=True,
+    additional_drop_params=["stop"]
+)
 
-llm_tasks = gpt_5_llm = LLM(
+gpt_5_llm = LLM(
     model="openai/gpt-5",
     drop_params=True,
     additional_drop_params=["stop", "temperature"]
 )
+
+
+llm_tasks = grok_4_llm
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
