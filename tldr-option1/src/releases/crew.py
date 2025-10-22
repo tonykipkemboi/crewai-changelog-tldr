@@ -16,6 +16,11 @@ grok_4_llm = LLM(
     additional_drop_params=["stop"]
 )
 
+gpt_4_1_llm = LLM(
+    model="openai/gpt-4.1",
+)
+
+
 gpt_5_llm = LLM(
     model="openai/gpt-5",
     drop_params=True,
@@ -27,7 +32,7 @@ gemini_2_5_llm = LLM(
     temperature=0.7,
 )
 
-llm_tasks = gemini_2_5_llm
+llm_tasks = gpt_4_1_llm
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators

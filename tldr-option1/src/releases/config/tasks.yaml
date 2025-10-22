@@ -4,6 +4,7 @@ read_releases_task:
     Extract and summarize important changes, features, and updates.
     Official release information can be found at https://github.com/crewAIInc/crewAI/releases/
     Always check the https://github.com/crewAIInc/crewAI/releases/ first as is often faster to update
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A detailed list of major releases with their key changes and updates.
   agent: read_releases
@@ -12,10 +13,12 @@ release_insights_task:
   description: >
     Analyze the release information for the version {release} and provide context about why changes are important.
     Format the release notes in a clear, easy-to-read manner.
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A well-formatted analysis of releases with context and importance highlighted.
     Use the report format from the {release_template}
     Use the language style from {language_style}
+    Ensure all links are valid and point to the correct page
   agent: release_insights
   context:
     - read_releases_task
@@ -25,18 +28,24 @@ read_issues_task:
     Collect and track the latest issues from GitHub and other relevant sources from {two_months_ago} to {current_date} for the version {release}
     Categorize and organize issues by type and priority.
     Official issue information can be found at https://github.com/crewAIInc/crewAI-tools/issues/ https://github.com/crewAIInc/crewAI/issues/  
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A categorized list of current issues with their sources and status.
+    Ensure all links are valid and point to the correct page
+
   agent: read_issues
 
 issue_insights_task:
   description: >
     Analyze the collected issues for the version {release} to identify patterns, trends, and common problems.
     Highlight areas that need immediate attention.
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     An analysis of issue patterns and trends with recommendations for action.
     Use the report format from the {issue_template}
     Use the language style from {language_style}
+    Ensure all links are valid and point to the correct page
+
   agent: issue_insights
   context:
     - read_issues_task
@@ -46,6 +55,7 @@ read_community_task:
     Monitor and collect information from community discussions and CrewAI forums from {two_months_ago} to {current_date} for the version {release}
     Track important conversations and feedback.
     Official community information can be found at https://community.crewai.com/
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A summary of key community discussions and forum content.
   agent: read_community
@@ -54,6 +64,7 @@ community_insights_task:
   description: >
     Analyze community discussions to identify key insights, FAQs, and concerns.
     Surface important community feedback and suggestions.
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A comprehensive analysis of community insights, FAQs, and concerns.
     Use the report format from the {community_template}
@@ -68,10 +79,15 @@ insights_task:
     Crerating an easy to read report so the community can quickly figure out what's new and what's changed.
     Blend in extra information from https://blog.crewai.com/ https://docs.crewai.com/ 
     Identify patterns and relationships across all sources of information.
+    Double check SerperDevTool and ScrapeWebsiteTool for the correct and uptodate information (if different use the ScrapeWebsiteTool)
   expected_output: >
     A cross-analysis report showing patterns and insights across releases, issues, blogs, docs updates and community feedback.
     Use the report format from the {insights_template}
     Use the language style from {language_style}
+    Ensure all links are valid and point to the correct page
+    When using links to github use the tree format https://github.com/crewAIInc/crewAI/tree/1.1.0 rather than the tag URL format https://github.com/crewAIInc/crewAI/releases/tag/v1.1.0
+    
+
   agent: insights
   context:
     - read_releases_task
@@ -86,6 +102,9 @@ tldr_task:
     A complete and concise summary of the latest CrewAI updates and community insights
     Use the report format from the {tldr_template}
     Use the language style from {language_style}
+    Ensure all links are valid and point to the correct page
+    When using links to github use the tree format https://github.com/crewAIInc/crewAI/tree/1.1.0 rather than the tag URL format https://github.com/crewAIInc/crewAI/releases/tag/v1.10
+
   agent: tldr
   context:
     - insights_task
